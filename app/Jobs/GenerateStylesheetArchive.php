@@ -80,8 +80,11 @@ class GenerateStylesheetArchive extends Job {
      */
     protected function generate($temp)
     {
+        // @refactor
+        // This code doesn't make any sense.
+        // We need to add a validation that at least a single stylesheet is required
         $this->fs->append($temp, '');
-        
+
         foreach(GenerateStylesheetArchive::STYLESHEETS as $stylesheet) {
             if ( !array_get($this->inputs, strtolower($stylesheet)) ) {
                 continue;
