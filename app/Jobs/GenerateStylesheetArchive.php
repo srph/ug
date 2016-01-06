@@ -59,7 +59,7 @@ class GenerateStylesheetArchive extends Job {
 		$this->fs = $fs;
 
         $filename = 'milligram_custom_' . str_random(6);
-        $path = 'temp/' . $filename . '.css';
+        $path = "temp/{$filename}.css";
 
         foreach(GenerateStylesheetArchive::STYLESHEETS as $stylesheet) {
             if ( !array_get($this->inputs, strtolower($stylesheet)) ) {
