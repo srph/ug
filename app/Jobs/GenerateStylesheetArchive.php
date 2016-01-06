@@ -63,7 +63,6 @@ class GenerateStylesheetArchive extends Job
         $temp = public_path("temp/{$filename}.css");
 
         $this->generate($temp);
-        // echo PHP_EOL . 'GAGO __ ' . $temp . ' __ GAGO ' . PHP_EOL;
         $zip = $this->zip($temp, $filename);
 
         // Casting this StdClass so it's not used awkwardly
