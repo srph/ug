@@ -93,7 +93,7 @@ class GenerateStylesheetArchive extends Job {
      * Zips the generated file
      *
      * @param string $temp Path of the temporary file (generated) to zip
-     * @param string $path Filename of the  (generated) file to zip
+     * @param string $filename Filename of the  (generated) file to zip
      * @return string Path to the generated zip file
      */
 	protected function zip($temp, $filename) {
