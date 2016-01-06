@@ -8,6 +8,27 @@ use Illuminate\Filesystem\Filesystem;
 
 class GenerateStylesheetArchive extends Job {
 
+    /**
+     * List of milligram stylesheets
+     *
+     * @var array
+     */
+    const STYLESHEETS =  [
+        'Base',
+        'Blockquote',
+        'Button',
+        'Code',
+        'Form',
+        'Grid',
+        'Link',
+        'List',
+        'Misc',
+        'Spacing',
+        'Table',
+        'Typography',
+        'Utility'
+    ];
+
 	/**
 	 * @var array
 	 */
@@ -40,23 +61,7 @@ class GenerateStylesheetArchive extends Job {
         $filename = 'milligram_custom_' . str_random(6);
         $path = 'temp/' . $filename . '.css';
 
-        $stylesheets = [
-            'Base',
-            'Blockquote',
-            'Button',
-            'Code',
-            'Form',
-            'Grid',
-            'Link',
-            'List',
-            'Misc',
-            'Spacing',
-            'Table',
-            'Typography',
-            'Utility'
-        ];
-
-        foreach($stylesheets as $stylesheet) {
+        foreach(GenerateStylesheetArchive::STYLESHEETS as $stylesheet) {
             if ( !array_get($this->inputs, strtolower($stylesheet)) ) {
                 continue;
             }
