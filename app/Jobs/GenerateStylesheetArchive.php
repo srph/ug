@@ -30,9 +30,7 @@ class GenerateStylesheetArchive extends Job {
 	public function handle(Zipper $zipper)
 	{
         $filename = 'milligram_custom_' . str_random(6);
-
         $temp_path = 'temp/' . $filename . '.css';
-        $temp = fopen($temp_path, 'a');
 
         $stylesheets = [
             'Base',
@@ -59,7 +57,6 @@ class GenerateStylesheetArchive extends Job {
             file_put_contents($temp_path, $file, FILE_APPEND);
         }
 
-        fclose($temp);
 
         $zipper->make('download/' . $filename . '.zip')->add([$temp_path, 'temp/normalize.css']);
         $zipper->close();
