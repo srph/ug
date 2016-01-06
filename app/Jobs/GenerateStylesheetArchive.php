@@ -74,6 +74,13 @@ class GenerateStylesheetArchive extends Job {
       	];
 	}
 
+    /**
+     * Zips the generated file
+     *
+     * @param string $path Path of the (generated) file to zip
+     * @param string $path Filename of the  (generated) file to zip
+     * @return string Path to the generated zip file
+     */
 	protected function zip($path, $filename) {
 		$zipper = new Zipper;
         $zipper->make("download/{$filename}.zip")
