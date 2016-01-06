@@ -29,8 +29,7 @@ class GenerateStylesheetArchive extends Job {
 	 */
 	public function handle(Zipper $zipper)
 	{
-		$digits = 5;
-        $filename = 'milligram_custom_' . str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
+        $filename = 'milligram_custom_' . str_random(6);
 
         $temp_path = 'temp/' . $filename . '.css';
         $temp = fopen($temp_path, 'a');
