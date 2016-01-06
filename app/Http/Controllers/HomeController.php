@@ -35,7 +35,7 @@ class HomeController extends Controller
         $file = $this->dispatch($job);
 
         return response()->download($file->path, $file->filename, [
-            'Content-type' => 'application/zip'
+            'Content-Type' => 'application/zip'
         ]);
     }
 }
