@@ -62,6 +62,7 @@ class GenerateStylesheetArchive extends Job {
         $temp = public_path("temp/{$filename}.css");
 
         $this->generate($temp);
+        // echo PHP_EOL . 'GAGO __ ' . $temp . ' __ GAGO ' . PHP_EOL;
         $zip = $this->zip($temp, $filename);
 
         // Casting this StdClass so it's not used awkwardly
@@ -79,13 +80,15 @@ class GenerateStylesheetArchive extends Job {
      */
     protected function generate($temp)
     {
+        $this->fs->append($temp, '');
+        
         foreach(GenerateStylesheetArchive::STYLESHEETS as $stylesheet) {
             if ( !array_get($this->inputs, strtolower($stylesheet)) ) {
                 continue;
             }
 
             $file = $this->fs->get(public_path("milligram/{$stylesheet}.css"));
-            $this->fs->append($temp, $file, FILE_APPEND);
+            $this->fs->append($temp, $file);
         }
     }
 
@@ -97,12 +100,14 @@ class GenerateStylesheetArchive extends Job {
      * @return string Path to the generated zip file
      */
 	protected function zip($temp, $filename) {
+        $path = public_path("download/{$filename}.zip");
+
 		$zipper = new Zipper;
-        $zipper->make("download/{$filename}.zip")
-        	->add([$temp, 'temp/normalize.css'])
+        $zipper->make($path)
+        	->add([$temp, public_path('temp/normalize.css')])
         	->close();
 
-        return app()->basePath("public/download/{$filename}.zip");
+        return $path;
 	}
 
 }
