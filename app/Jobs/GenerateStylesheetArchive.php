@@ -84,7 +84,7 @@ class GenerateStylesheetArchive extends Job {
                 continue;
             }
 
-            $file = $this->fs->get("milligram/{$stylesheet}.css");
+            $file = $this->fs->get(public_path("milligram/{$stylesheet}.css"));
             $this->fs->append($temp, $file, FILE_APPEND);
         }
     }
