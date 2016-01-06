@@ -6,7 +6,8 @@ use App\Jobs\Job;
 use Chumper\Zipper\Zipper;
 use Illuminate\Filesystem\Filesystem;
 
-class GenerateStylesheetArchive extends Job {
+class GenerateStylesheetArchive extends Job
+{
 
     /**
      * List of milligram stylesheets
