@@ -59,18 +59,10 @@ class GenerateStylesheetArchive extends Job {
 		$this->fs = $fs;
 
         $filename = 'milligram_custom_' . str_random(6);
-        $path = "temp/{$filename}.css";
+        $temp = public_path("temp/{$filename}.css");
 
-        foreach(GenerateStylesheetArchive::STYLESHEETS as $stylesheet) {
-            if ( !array_get($this->inputs, strtolower($stylesheet)) ) {
-                continue;
-            }
-
-            $file = $fs->get("milligram/{$stylesheet}.css");
-            $fs->append($path, $file, FILE_APPEND);
-        }
-
-        $zip = $this->zip($path, $filename);
+        $this->generate($temp);
+        $zip = $this->zip($temp, $filename);
 
         // Casting this StdClass so it's not used awkwardly
         return (object) [
@@ -80,16 +72,34 @@ class GenerateStylesheetArchive extends Job {
 	}
 
     /**
+     * Compiles the stylesheets
+     *
+     * @param $temp Path to temp file
+     * @return void
+     */
+    protected function generate($temp)
+    {
+        foreach(GenerateStylesheetArchive::STYLESHEETS as $stylesheet) {
+            if ( !array_get($this->inputs, strtolower($stylesheet)) ) {
+                continue;
+            }
+
+            $file = $this->fs->get("milligram/{$stylesheet}.css");
+            $this->fs->append($temp, $file, FILE_APPEND);
+        }
+    }
+
+    /**
      * Zips the generated file
      *
-     * @param string $path Path of the (generated) file to zip
+     * @param string $temp Path of the temporary file (generated) to zip
      * @param string $path Filename of the  (generated) file to zip
      * @return string Path to the generated zip file
      */
-	protected function zip($path, $filename) {
+	protected function zip($temp, $filename) {
 		$zipper = new Zipper;
         $zipper->make("download/{$filename}.zip")
-        	->add([$path, 'temp/normalize.css'])
+        	->add([$temp, 'temp/normalize.css'])
         	->close();
 
         return app()->basePath("public/download/{$filename}.zip");
