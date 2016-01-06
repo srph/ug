@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Jobs\Job;
 use Chumper\Zipper\Zipper;
+use Illuminate\Filesystem\Filesystem;
 
 class GenerateStylesheetArchive extends Job {
 
@@ -11,6 +12,11 @@ class GenerateStylesheetArchive extends Job {
 	 * @var array
 	 */
 	protected $inputs;
+
+	/**
+	 * @var Illuminate\Filesystem\Filesystem
+	 */
+	protected $fs;
 
 	/**
 	 * Create a new job instance*
@@ -27,10 +33,12 @@ class GenerateStylesheetArchive extends Job {
 	 *
 	 * @return StdClass
 	 */
-	public function handle(Zipper $zipper)
+	public function handle(Filesystem $fs)
 	{
+		$this->fs = $fs;
+
         $filename = 'milligram_custom_' . str_random(6);
-        $temp_path = 'temp/' . $filename . '.css';
+        $path = 'temp/' . $filename . '.css';
 
         $stylesheets = [
             'Base',
@@ -53,21 +61,26 @@ class GenerateStylesheetArchive extends Job {
                 continue;
             }
 
-            $file = file_get_contents("milligram/{$stylesheet}.css");
-            file_put_contents($temp_path, $file, FILE_APPEND);
+            $file = $fs->get("milligram/{$stylesheet}.css");
+            $fs->append($path, $file, FILE_APPEND);
         }
 
-
-        $zipper->make('download/' . $filename . '.zip')->add([$temp_path, 'temp/normalize.css']);
-        $zipper->close();
-
-        $path = rtrim(app()->basePath('public/'), '/') . "/download/" . $filename . '.zip';
+        $zip = $this->zip($path, $filename);
 
         // Casting this StdClass so it's not used awkwardly
         return (object) [
-        	'path' => $path,
+        	'path' => $zip,
         	'filename' => "{$filename}.zip"
       	];
+	}
+
+	protected function zip($path, $filename) {
+		$zipper = new Zipper;
+        $zipper->make("download/{$filename}.zip")
+        	->add([$path, 'temp/normalize.css'])
+        	->close();
+
+        return app()->basePath("public/download/{$filename}.zip");
 	}
 
 }
