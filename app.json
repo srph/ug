@@ -1,0 +1,13 @@
+{
+  "name": "ug-review",
+  "scripts": {
+  },
+  "env": {
+    "APP_KEY": {
+      "generator": "secret"
+    }
+  },
+  "addons": [
+
+  ]
+}
