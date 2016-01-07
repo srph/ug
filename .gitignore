@@ -1,2 +1,7 @@
 /vendor
 /node_modules
+.env
+
+# Desktop
+.DS_Store
+Thums.db
