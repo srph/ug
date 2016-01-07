@@ -13,7 +13,7 @@ class GenerateStylesheetArchive extends Job
      * List of milligram stylesheets
      *
      * @var array
-     *
+     */
     protected $stylesheets = [
         'Base',
         'Blockquote',
