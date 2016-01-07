@@ -13,8 +13,8 @@ class GenerateStylesheetArchive extends Job
      * List of milligram stylesheets
      *
      * @var array
-     */
-    const STYLESHEETS =  [
+     *
+    protected $stylesheets = [
         'Base',
         'Blockquote',
         'Button',
@@ -85,7 +85,7 @@ class GenerateStylesheetArchive extends Job
         // We need to add a validation that at least a single stylesheet is required
         $this->fs->append($temp, '');
 
-        foreach(GenerateStylesheetArchive::STYLESHEETS as $stylesheet) {
+        foreach($this->stylesheets as $stylesheet) {
             if ( !array_get($this->inputs, strtolower($stylesheet)) ) {
                 continue;
             }
