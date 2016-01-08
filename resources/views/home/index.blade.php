@@ -112,9 +112,6 @@
           </div>
         </fieldset>
         <input class="button" type="submit" value="Download">
-        @if(Session::has('success'))
-            <small><a href="#"><em>{{ Session::get('success') }}</em></a></small>
-        @endif
       </form>
     </section>
     <footer class="container">
