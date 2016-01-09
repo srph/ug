@@ -21,14 +21,14 @@
         },
         "classmap": [
             "database/"
+        ],
+        "files": [
+            "app/helpers.php"
         ]
     },
     "autoload-dev": {
         "classmap": [
             "tests/"
-        ],
-        "files": [
-            "app/helpers.php"
         ]
     },
     "config": {
