@@ -36,6 +36,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.0.3/milligram.min.css">
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="icon" href="img/favicon.png">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.js"></script>
+  <script type='text/javascript'>
+    $(function(){
+      var modules = $("input[type='checkbox']"),
+          download = $("input[type='submit']");
+
+      modules.click(function() {
+          download.attr("disabled", !modules.is(":checked"));
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="wrapper">
@@ -111,7 +122,7 @@
             </div>
           </div>
         </fieldset>
-        <input class="button" type="submit" value="Download">
+        <input class="button" type="submit" value="Download" disabled>
       </form>
     </section>
     <footer class="container">
