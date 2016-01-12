@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.0.3/milligram.min.css">
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="icon" href="img/favicon.png">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.6.2.js"></script>
   <script type='text/javascript'>
     $(function(){
       var modules = $("input[type='checkbox']"),
