@@ -10,7 +10,7 @@
   <meta name="author" content="https://ug-web.herokuapp.com/">
   <meta name="description" content="Milligram framework customizer">
   <meta property="og:description" content="Milligram framework customizer">
-  <meta property="og:image" content="https://ug-web.herokuapp.com/img/thumbnail.jpg">
+  <meta property="og:image" content="//ug-web.herokuapp.com/img/thumbnail.jpg">
   <meta property="og:locale" content="en">
   <meta property="og:site_name" content="µg | A Milligram customizer">
   <meta property="og:title" content="µg | A Milligram customizer">
@@ -26,17 +26,17 @@
   <meta name="twitter:creator" content="@vkeusebio">
   <meta name="twitter:title" content="µg | A Milligram customizer">
   <meta name="twitter:description" content="Milligram framework customizer">
-  <meta name="twitter:image:src" content="https://ug-web.herokuapp.com/img/thumbnail.jpg">
+  <meta name="twitter:image:src" content="//ug-web.herokuapp.com/img/thumbnail.jpg">
   <title>µg | A Milligram customizer</title>
   <link rel="canonical" href="https://ug-web.herokuapp.com/">
-  <link rel="image_src" href="https://ug-web.herokuapp.com/img/thumbnail.jpg">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.0.3/milligram.min.css">
+  <link rel="image_src" href="//ug-web.herokuapp.com/img/thumbnail.jpg">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.0.3/milligram.min.css">
   <link rel="stylesheet" href="css/stylesheet.css">
   <link rel="icon" href="img/favicon.png">
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.6.2.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.6.2.js"></script>
   <script type='text/javascript'>
     $(function(){
       var modules = $("input[type='checkbox']"),
