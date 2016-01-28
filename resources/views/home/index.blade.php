@@ -7,29 +7,29 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="#f4f5f6">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="https://ug-web.herokuapp.com/">
+  <meta name="author" content="{{ url('/') }}">
   <meta name="description" content="Milligram framework customizer">
   <meta property="og:description" content="Milligram framework customizer">
-  <meta property="og:image" content="//ug-web.herokuapp.com/img/thumbnail.jpg">
+  <meta property="og:image" content="{{ url('/img/thumbnail.jpg') }}">
   <meta property="og:locale" content="en">
   <meta property="og:site_name" content="µg | A Milligram customizer">
   <meta property="og:title" content="µg | A Milligram customizer">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ug-web.herokuapp.com/">
+  <meta property="og:url" content="{{ url('/') }}">
   <meta property="article:published_time" content="2015-12-25T01:00:00Z">
   <meta property="article:author" content="@vkeusebio">
   <meta property="article:section" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:domain" content="µg | A Milligram customizer">
-  <meta name="twitter:url" content="https://ug-web.herokuapp.com/">
-  <meta name="twitter:site" content="https://ug-web.herokuapp.com/">
+  <meta name="twitter:url" content="{{ url('/') }}">
+  <meta name="twitter:site" content="{{ url('/') }}">
   <meta name="twitter:creator" content="@vkeusebio">
   <meta name="twitter:title" content="µg | A Milligram customizer">
   <meta name="twitter:description" content="Milligram framework customizer">
-  <meta name="twitter:image:src" content="//ug-web.herokuapp.com/img/thumbnail.jpg">
+  <meta name="twitter:image:src" content="{{ url('/img/thumbnail.jpg') }}">
   <title>µg | A Milligram customizer</title>
-  <link rel="canonical" href="https://ug-web.herokuapp.com/">
-  <link rel="image_src" href="//ug-web.herokuapp.com/img/thumbnail.jpg">
+  <link rel="canonical" href="{{ url('/') }}">
+  <link rel="image_src" href="{{ url('/img/thumbnail.jpg') }}">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
